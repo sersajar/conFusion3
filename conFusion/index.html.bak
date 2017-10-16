@@ -28,126 +28,6 @@
 
 <body>
 
-    <!-- Login Modal -->
-    <div id="loginModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content" style="width: 650px;">
-
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Login</h4>
-                </div>
-
-                <div class="modal-body">
-                    <form class="form-inline">
-
-                        <div class="form-group">
-                            <label class="sr-only" for="email">Email address</label>
-                            <input type="email" class="form-control input-sm" id="email" placeholder="Email">
-                        </div>
-                        <div class="form-group">
-                            <label class="sr-only" for="password">Password</label>
-                            <input type="password" class="form-control input-sm" id="password" placeholder="Password">
-                        </div>
-                        <div class="checkbox" style="padding-right: 15px;">
-                            <label><input type="checkbox"> Remember me</label>
-                        </div>
-
-                        <button type="submit" class="btn btn-info btn-sm">Sign in</button>
-                        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancel</button>
-
-                    </form>
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <!-- End Login Modal -->
-
-    <!-- Reservation Modal -->
-    <div id="reservationModal" class="modal fade" role="dialog" style="color:black;">
-        <div class="modal-dialog">
-            <div class="modal-content">
-
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Reserve Table</h4>
-                </div>
-                <div class="modal-body">
-                    <form class="form-horizontal" role="form">
-                        <div class="form-group">
-                            <label for="numberofguests" class="col-sm-2 control-label">Number of Guests</label>
-                            <div class="col-sm-10">
-                                <label class="radio-inline">
-                                  <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 1
-                                </label>
-                                <label class="radio-inline">
-                                  <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 2
-                                </label>
-                                <label class="radio-inline">
-                                  <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 3
-                                </label>
-                                <label class="radio-inline">
-                                  <input type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4"> 4
-                                </label>
-                                <label class="radio-inline">
-                                  <input type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option5"> 5
-                                </label>
-                                <label class="radio-inline">
-                                  <input type="radio" name="inlineRadioOptions" id="inlineRadio6" value="option6"> 6
-                                </label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="section" class="col-sm-2 control-label">Section</label>
-                            <div class="col-sm-10">
-                                <div class="btn-group" data-toggle="buttons">
-                                    <label class="btn btn-primary btn-success active">
-                                      <input type="radio" name="options" id="option1" autocomplete="off" checked> Non-Smoking
-                                    </label>
-                                    <label class="btn btn-primary btn-danger">
-                                      <input type="radio" name="options" id="option2" autocomplete="off"> Smoking
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="dateandtime" class="col-sm-2 control-label">Date and Time</label>
-                            <div class="col-sm-4">
-                                <div class="has-feedback">
-                                    <input type="text" class="form-control" id="date1" aria-describedby="date1" placeholder="Date">
-                                    <i class="glyphicon glyphicon-calendar form-control-feedback" aria-hidden="true"></i>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="has-feedback">
-                                    <input type="text" class="form-control" id="time1" aria-describedby="time1" placeholder="Time">
-                                    <i class="glyphicon glyphicon-time form-control-feedback" aria-hidden="true"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-primary">Reserve</button>
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                            </div>
-                        </div>
-                    </form>
-                    <div class="alert alert-warning alert-dismissable" role="alert">
-                        <button type="button" class="close"
-                            data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <strong>Warning:</strong> Please <a href="" class="alert-link">call</a> us to reserve for more than six guests.
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <!-- End Reservation Modal -->
-
-    <!-- Navigation Bar -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
@@ -189,9 +69,30 @@
             </div>
         </div>
     </nav>
-    <!-- End Navigation Bar -->
 
-    <!-- Header -->
+    <div id="loginModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+        <!-- Modal Content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Login</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-inline">
+                    <input type="email" class="form-control" id="emailid" placeholder="Email">
+                    <input type="password" class="form-conrtrol" id="password" placeholder="Password">
+                    <label class="checkbox">
+                        <input type="checkbox"> Remember me
+                    </label>
+                    <button type="submit" class="btn btn-info btn-sm">Sign in</button>
+                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancel</button>
+                </form>
+            </div>
+        </div>
+        </div>
+    </div>
+
     <header class="jumbotron">
 
         <!-- Main component for a primary marketing message or call to action -->
@@ -209,14 +110,13 @@
                 </div>
                 <div class="col-xs-12 col-sm-2">
                     <p style="padding: 40px";></p>
-                    <a href="#" type="button" class="btn btn-warning btn-block" data-toggle="modal" title="Or Call us at +852 12345678" data-target="#reservationModal">Reserve Table</a>
+                    <a href="#reserve" type="button" class="btn btn-warning btn-block" data-toggle="tooltip" title="Or Call us at +852 12345678" data-placement="bottom">Reserve Table</a>
                 </div>
             </div>
         </div>
 
-    </header> <!-- End of Header -->
+    </header> <!-- End of Jumbotron -->
 
-    <!-- Main Content -->
     <div class="container">
 
         <div class="row">
@@ -278,16 +178,6 @@
                         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                     </a>
-
-                    <div class="btn-group" id="carouselButtons">
-                        <button class="btn btn-danger btn-sm" id="carousel-pause">
-                            <span class="fa fa-pause" aria-hidden="true"></span>
-                        </button>
-
-                        <button class="btn btn-danger btn-sm" id="carousel-play">
-                            <span class="fa fa-play" aria-hidden="true"></span>
-                        </button>
-                    </div>
 
                 </div> <!-- end of carousel-->
             </div>
@@ -367,6 +257,79 @@
             </div>
         </div>
 
+        <div class="row row-content" id="reserve"> <!--4th row-->
+            <div class="col-xs-12 col-sm-3">
+                <p style="padding: 20px;"></p>
+                <h3 align="center">Reserve a Table</h3>
+            </div>
+
+            <div class="col-xs-12 col-sm-9">
+                <form class="form-horizontal" role="form">
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Number of Guests</label>
+                        <div class="col-sm-10">
+                            <p style="padding: 1px;"></p>
+                            <input type="radio" name="number" value="1">&nbsp;&nbsp;1&nbsp;&nbsp;
+                            <input type="radio" name="number" value="2">&nbsp;&nbsp;2&nbsp;&nbsp;
+                            <input type="radio" name="number" value="3">&nbsp;&nbsp;3&nbsp;&nbsp;
+                            <input type="radio" name="number" value="4">&nbsp;&nbsp;4&nbsp;&nbsp;
+                            <input type="radio" name="number" value="5">&nbsp;&nbsp;5&nbsp;&nbsp;
+                            <input type="radio" name="number" value="6">&nbsp;&nbsp;6&nbsp;&nbsp;
+                        </div>
+                    </div>
+
+                    <!-- SMOKING SECTION
+                    <div class="form-group">
+                       <label class="control-label col-sm-2 col-xs-12">Section</label>
+                       <div class="col-sm-10 col-xs-12">
+                         <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-success active">
+                             <input type="radio" name="options" id="option1" autocomplete="off" checked>Non Smoking
+                           </label>
+                           <label class="btn btn-danger">
+                          <input type="radio" name="options" id="option2" autocomplete="off">Smoking
+                           </label>
+                         </div>
+                       </div>
+                    </div> END SMOKING SECTION -->
+
+                    <div class="form-group has-feedback has-feedback-right">
+                        <label class="col-sm-2 control-label">Date and Time</label>
+
+                        <div class="col-xs-6 col-sm-4">
+                            <div class="input-group">
+                              <input type="text" class="form-control" placeholder="Date">
+                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-6 col-sm-4">
+                            <div class="input-group">
+                              <input type="text" class="form-control" placeholder="Time">
+                                <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">Reserve</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="alert alert-warning col-sm-offset-1 col-sm-10" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+                            </button>
+                            Warning: Please call <a href="contactus.html">us</a> to reserve more than six guests.
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
     </div>
 
     <footer class="row-footer">
@@ -418,14 +381,8 @@
 
     <script>
         $(document).ready(function(){
-            $("#mycarousel").carousel( { interval: 2000 } );
-                          $("#carousel-pause").click(function(){
-                $("#mycarousel").carousel('pause');
-            });
-                        $("#carousel-play").click(function(){
-                $("#mycarousel").carousel('cycle');
-            });
-        });
+        $('[data-toggle="tooltip"]').tooltip();
+         });
     </script>
 
 </body>
