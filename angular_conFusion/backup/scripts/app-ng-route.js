@@ -2,6 +2,7 @@
 'use strict';
 
 angular.module('confusionApp', ['ngRoute'])
+        // to correct use, and eliminate "!" from URL
         .config(['$locationProvider', function($locationProvider) {
             
             $locationProvider.hashPrefix('');
