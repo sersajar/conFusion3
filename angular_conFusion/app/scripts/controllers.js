@@ -56,7 +56,7 @@ angular.module('confusionApp')
 
                 console.log($scope.feedback);
 
-                if ($scope.feedback.agree && ($scope.feedback.mychannel == "")) {
+                if ($scope.feedback.agree && ($scope.feedback.mychannel === "")) {
                     $scope.invalidChannelSelection = true;
                     console.log('incorrect');
                 }
@@ -71,11 +71,10 @@ angular.module('confusionApp')
         }])
         
         // we do dependency injection into the DishDetailController
-        .controller('DishDetailController', ['$scope', 'menuFactory', function($scope, menuFactory) {
+        .controller('DishDetailController', ['$scope', '$routeParams', 'menuFactory', function($scope, $routeParams, menuFactory) {
 
-            var dish = menuFactory.getDish(3);
-            $scope.dish = dish;
-
+            var dish= menuFactory.getDish(parseInt($routeParams.id,10));                       $scope.dish = dish;
+            
         }])
 
         .controller('DishCommentController', ['$scope', function($scope) {

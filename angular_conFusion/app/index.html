@@ -51,7 +51,7 @@
                          aria-hidden="true"></span> 
                          Menu</a></li>
                      <li><a href="#/contactus">
-                     <i class="fa fa-envelope-o"></i> Contact</a></li>
+                        <i class="fa fa-envelope-o"></i> Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -81,7 +81,8 @@
         </div>
     </header>
     
-    <ng-include src="'menu.html'"></ng-include>
+    <!-- HTML TEMPLATE -->
+    <ng-view></ng-view> 
     
     <!-- FOOTER -->
     <footer class="row-footer">
@@ -129,9 +130,11 @@
 
 <!-- build:js scripts/main.js -->
     <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="../bower_components/angular-route/angular-route.min.js"></script>
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers.js"></script>
     <script src="scripts/services.js"></script>
+    
 <!-- endbuild -->
 
 </body>
