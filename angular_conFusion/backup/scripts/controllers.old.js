@@ -1,19 +1,21 @@
+/*jslint node: true */
 'use strict';
 
 angular.module('confusionApp')
-
+        
+        // we do dependency injection to introduce the menuFactory service into MenuController
         .controller('MenuController', ['$scope', 'menuFactory', function($scope, menuFactory) {
-            
+
             $scope.tab = 1;
             $scope.filtText = '';
             $scope.showDetails = false;
-
+          
             $scope.dishes= menuFactory.getDishes();
+          
 
-                        
             $scope.select = function(setTab) {
                 $scope.tab = setTab;
-                
+
                 if (setTab === 2) {
                     $scope.filtText = "appetizer";
                 }
@@ -31,7 +33,7 @@ angular.module('confusionApp')
             $scope.isSelected = function (checkTab) {
                 return ($scope.tab === checkTab);
             };
-    
+
             $scope.toggleDetails = function() {
                 $scope.showDetails = !$scope.showDetails;
             };
@@ -40,20 +42,20 @@ angular.module('confusionApp')
         .controller('ContactController', ['$scope', function($scope) {
 
             $scope.feedback = {mychannel:"", firstName:"", lastName:"", agree:false, email:"" };
-            
+
             var channels = [{value:"tel", label:"Tel."}, {value:"Email",label:"Email"}];
-            
+
             $scope.channels = channels;
             $scope.invalidChannelSelection = false;
-                        
+
         }])
 
         .controller('FeedbackController', ['$scope', function($scope) {
-            
+
             $scope.sendFeedback = function() {
-                
+
                 console.log($scope.feedback);
-                
+
                 if ($scope.feedback.agree && ($scope.feedback.mychannel === "")) {
                     $scope.invalidChannelSelection = true;
                     console.log('incorrect');
@@ -67,48 +69,43 @@ angular.module('confusionApp')
                 }
             };
         }])
-
-        .controller('DishDetailController', ['$scope', '$stateParams', 'menuFactory', function($scope, $stateParams, menuFactory) {
-
-            var dish= menuFactory.getDish(parseInt($stateParams.id,10));
+        
+        // we do dependency injection into the DishDetailController       
+        .controller('DishDetailController', ['$scope', '$stateParams', 'menuFactory',               function($scope, $stateParams, menuFactory) {
             
-            $scope.dish = dish;
-            
+                var dish= menuFactory.getDish(parseInt($stateParams.id,10));
+                $scope.dish = dish;
         }])
+        
+        
+    /*  // controller for ng-route from last exercise
+        .controller('DishDetailController', ['$scope', '$routeParams', 'menuFactory', function($scope, $routeParams, menuFactory) {
+
+            var dish= menuFactory.getDish(parseInt($routeParams.id,10));                       $scope.dish = dish;
+            
+        }]) */
 
         .controller('DishCommentController', ['$scope', function($scope) {
             
-            $scope.mycomment = {rating:5, comment:"", author:"", date:""};
+            //Step 1: Create a JavaScript object to hold the comment from the form
             
-            $scope.submitComment = function () {
-                
-                $scope.mycomment.date = new Date().toISOString();
-                console.log($scope.mycomment);
-                
-                $scope.dish.comments.push($scope.mycomment);
-                
-                $scope.commentForm.$setPristine();
-                
-                $scope.mycomment = {rating:5, comment:"", author:"", date:""};
+          var sc = $scope;
+          
+            sc.mycomment = {author:"", rating: 5, comment:"", date: ""};
+            sc.submitComment = function () {
+
+                //Step 2: This is how you record the date
+                sc.mycomment.date = new Date().toISOString();
+
+                // Step 3: Push your comment into the dish's comment array
+                // sc.mycomment.rating = parseInt($scope.mycomment.rating);
+                sc.dish.comments.push($scope.mycomment);
+
+                //Step 4: reset your form to pristine
+                sc.commentForm.$setPristine();
+
+                //Step 5: reset your JavaScript object that holds your comment
+                sc.mycomment = {author:"", rating: 5, comment:"", date: ""};
             };
-        }])
-
-        // implement the IndexController and AboutController here
-        .controller('IndexController', ['$scope', 'menuFactory', 
-            'corporateFactory', function($scope, menuFactory, corpfac){
-
-            $scope.fdish = menuFactory.getDish(0);
-            
-            $scope.promotion = menuFactory.getPromotion(0);
-                
-            $scope.leader = corpfac.getLeader(3);
-            
-        }])
-        
-        .controller('AboutController', ['$scope','corporateFactory', function($scope, corporateFactory) {
-
-            $scope.leadership = corporateFactory.getLeaders();
-
-        }])
-
+      }])
 ;

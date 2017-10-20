@@ -19,7 +19,7 @@ angular.module('confusionApp', ['ui.router'])
                                 templateUrl : 'views/header.html'
                             },
                             'content': {
-                                template : '<h1>To be Completed</h1>',
+                                templateUrl : 'views/home.html',
                                 controller  : 'IndexController'
                             },
                             'footer': {
@@ -32,7 +32,8 @@ angular.module('confusionApp', ['ui.router'])
                         url:'aboutus',
                         views: {
                             'content@': {
-                                template: '<h1>To be Completed</h1>'
+                                templateUrl: 'views/aboutus.html',
+                                controller: 'AboutController'
                            }
                         }
                     })
