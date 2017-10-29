@@ -4,18 +4,12 @@
 angular.module('confusionApp')
 
         .constant("baseURL","http://localhost:3000/")
-        .service('menuFactory', ['$http', 'baseURL', function ($http, baseURL) {
+        .service('menuFactory', ['$resource', 'baseURL', function ($resource, baseURL) {
             
-            // the $http service returns a promise
+            // the $ service returns a promise
             this.getDishes = function(){
                     
-                return $http.get(baseURL+"dishes");
-                
-            };
-        
-            this.getDish = function (index) {
-                
-                return $http.get(baseURL+"dishes/"+index);
+                return $resource(baseURL+"dishes/:id", null, {'update':{method:'PUT' }});
                 
             };
     

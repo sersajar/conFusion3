@@ -1,7 +1,7 @@
 /*jslint node: true */
 'use strict';
 
-angular.module('confusionApp', ['ui.router'])
+angular.module('confusionApp', ['ui.router', 'ngResource'])
     /*  // to correct use with ng-route NOT angular-UI-router, and eliminate "!" from URL
         .config(['$locationProvider', function($locationProvider) {
             
