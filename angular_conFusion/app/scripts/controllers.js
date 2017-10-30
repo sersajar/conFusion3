@@ -7,7 +7,7 @@ angular.module('confusionApp')
             $scope.tab = 1;
             $scope.filtText = '';
             $scope.showDetails = false;
-            $scope.showMenu = true;
+            $scope.showMenu = false;
             $scope.message = "Loading ...";
             
             menuFactory.getDishes().query(
@@ -107,7 +107,7 @@ angular.module('confusionApp')
                 
                 $scope.dish.comments.push($scope.mycomment);
                 
-                menuFactory.getDishes().update({id:$scope.dish.id},$scope.dish);
+                menuFactory.getDishes().update({id:$scope.dish.id}, $scope.dish);
                 
                 $scope.commentForm.$setPristine();
                 
