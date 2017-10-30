@@ -70,7 +70,7 @@ angular.module('confusionApp')
                     $scope.invalidChannelSelection = false;
                     feedbackFactory.getFeedback().save($scope.feedback);
                     $scope.feedbackForm.$setPristine();
-                    console.log('Saved feedback: ' + JSON.stringify($scope.feedback));
+                        console.log('Saved feedback: ' + JSON.stringify($scope.feedback));
                     $scope.feedback = {mychannel: "", firstName: "", lastName: "", agree: false, email: ""};
                 }
             };
@@ -165,15 +165,16 @@ angular.module('confusionApp')
 
             $scope.showLeaders = false;
 
-            $scope.leaders = corporateFactory.getLeaders().query(
-                function (response) {
-                    $scope.leaders = response;
-                    $scope.showLeaders = true;
-                },
-                function (response) {
-                    $scope.message = "Error: " + response.status + " " + response.statusText;
-                });
-
+            $scope.leaders = corporateFactory.getLeaders().query()
+                .$promise.then(
+                    function (response) {
+                        $scope.leaders = response;
+                        $scope.showLeaders = true;
+                    },
+                    function (response) {
+                        $scope.message = "Error: " + response.status + " " + response.statusText;
+                    }
+                );
         }])
 
 ;
